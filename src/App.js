@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import Portfolio from './Portfolio';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +19,8 @@ function App() {
         >
           Learn React
         </a>
+        <Portfolio example={"test prop please ignore"}/>
+
       </header>
     </div>
   );

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App myFirstProp="something really mature" another={3} mungo={"geetesh kalakoti"}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
