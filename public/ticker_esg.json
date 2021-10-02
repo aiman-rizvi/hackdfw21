@@ -1,0 +1,44 @@
+{
+  "tickers": [
+    {
+      "name": "Wells Fargo & Co.",
+      "ticker": "WFC",
+      "esg": {
+        "spglobal": {
+          "type": "score",
+          "overall": "37",
+          "e": 84,
+          "s": 27,
+          "g": 32
+        },
+        "msci": {
+          "type": "letter",
+          "overall": "BB",
+          "e": "A",
+          "s": "CCC",
+          "g": "CCC"
+        }
+      }
+    },
+    {
+      "name": "Microsoft Corp.",
+      "ticker": "MSFT",
+      "esg": {
+        "spglobal": {
+          "type": "score",
+          "overall": "58",
+          "e": 63,
+          "s": 54,
+          "g": 59
+        },
+        "msci": {
+          "type": "letter",
+          "overall": "AAA",
+          "e": "AAA",
+          "s": "AAA",
+          "g": "AA"
+        }
+      }
+    }
+  ]
+}

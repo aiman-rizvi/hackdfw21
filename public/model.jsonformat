@@ -1,0 +1,15 @@
+name = Microsoft Corp.
+ticker = MSFT
+esg
+  spglobal
+    type = score
+    overall = 58
+    e n = 63
+    s n = 54
+    g n = 59
+  msci
+    type = letter
+    overall = AAA
+    e = AAA
+    s = AAA
+    g = AA
