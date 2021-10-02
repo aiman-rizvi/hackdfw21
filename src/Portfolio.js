@@ -4,11 +4,13 @@ import React from "react";
 class Portfolio extends React.Component {
     constructor(props) { // this fires in the making of the component
         super(props);
-        this.state = {equity: 100};
+        this.state = {equity: {}};
     }
 
     componentDidMount() { // this fires once the component starts up
-      this.timerID = setInterval(
+        this.randomMoney()
+
+        this.timerID = setInterval(
           () => this.tick(),
           1500
       );
@@ -18,14 +20,15 @@ class Portfolio extends React.Component {
       clearInterval(this.timerID);
     }
 
-    minDollars = 143
-    maxDollars = 146
-
     tick() {
-      this.setState({equity: {
-          dollars: Math.round(this.minDollars + (this.maxDollars - this.minDollars) * Math.round(Math.random() * 100) / 100),
-          cents: Math.round(Math.random().toFixed(2)*100)
-      }});
+        this.randomMoney()
+    }
+
+    randomMoney(min=145, max=150) {
+        this.setState({equity: {
+                dollars: Math.round(min + (max - min) * Math.round(Math.random() * 100) / 100),
+                cents: Math.round(Math.random().toFixed(2)*100)
+        }});
     }
 
     render() {
