@@ -6,7 +6,8 @@ import Aspirations from './Aspirations';
 import Recommendations from './Recommendations';
 
 import Navbar from 'react-bootstrap/Navbar';
-import {Container, Nav, NavDropdown} from "react-bootstrap";
+import {Button, Container, Form, FormControl, Nav, NavDropdown} from "react-bootstrap";
+import Ticker from "./Ticker";
 
 
 class App extends React.Component {
@@ -27,12 +28,15 @@ class App extends React.Component {
     super.forceUpdate(callback);
   }
 
-  clickMe(event, someParameter){
-    this.setState({page: someParameter})
+  handleNavClick(event, pageName){
+    this.setState({page: pageName})
     this.forceUpdate()
   }
 
-
+  handleTickerSearch = (event) => {
+    this.setState({page: "ticker"})
+    this.forceUpdate()
+  }
 
   render() {
     let toRender = []
@@ -46,19 +50,35 @@ class App extends React.Component {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
 
-                  <Nav.Link onClick={(e) => {this.clickMe(e, "portfolio");}}>
+                  <Nav.Link onClick={(e) => {this.handleNavClick(e, "portfolio");}}>
                     Portfolio
                   </Nav.Link>
 
-                  <Nav.Link onClick={(e) => {this.clickMe(e, "aspirations");}}>
+                  <Nav.Link onClick={(e) => {this.handleNavClick(e, "aspirations");}}>
                     Aspirations
                   </Nav.Link>
 
-                  <Nav.Link onClick={(e) => {this.clickMe(e, "recommendations");}}>
+                  <Nav.Link onClick={(e) => {this.handleNavClick(e, "recommendations");}}>
                     Recommendations
                   </Nav.Link>
 
                 </Nav>
+                <Form className="d-flex">
+                  <FormControl
+                      type="search"
+                      placeholder="Search"
+                      className="me-2"
+                      aria-label="Search"
+                      onChange={event => {this.setState({ticker: event.target.value})}}
+                  />
+                  <Button type="submit" variant="outline-success">Search</Button>
+                  <Button
+                      variant="outline-primary"
+                      onClick={this.handleTickerSearch}
+                  >
+                    Search
+                  </Button>
+                </Form>
               </Navbar.Collapse>
             </Container>
           </Navbar>
@@ -78,6 +98,11 @@ class App extends React.Component {
     if (this.state.page === "recommendations") {
       toRender.push(
           <Recommendations example={this.state.page}/>
+      );
+    }
+    if (this.state.page === "ticker") {
+      toRender.push(
+          <Ticker example={this.state.page} ticker={this.state.ticker}/>
       );
     }
 
